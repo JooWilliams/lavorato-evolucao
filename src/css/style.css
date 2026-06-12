@@ -1,0 +1,307 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* ── Formulário ── */
+#formulario {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.form-header h1 {
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: #5a6b7c;
+  font-weight: 300;
+  margin: 0;
+}
+.form-header p {
+  color: #999;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 4px 0 0;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+.card h2 {
+  margin: 0 0 18px;
+  font-size: 15px;
+  color: #5eb3c7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 180px;
+}
+.field.full {
+  flex: 100%;
+  min-width: 100%;
+}
+
+label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #5eb3c7;
+}
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+/* ── Sessões ── */
+.sessao-card {
+  border: 2px solid #e8f4f8;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  background: #fafcfd;
+}
+.sessao-card .sessao-num {
+  font-size: 12px;
+  font-weight: bold;
+  color: #5eb3c7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+.btn-remover {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: 1.5px solid #ddd;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-remover:hover {
+  border-color: #e05;
+  color: #e05;
+}
+
+.btn-adicionar {
+  width: 100%;
+  padding: 12px;
+  background: #fff;
+  border: 2px dashed #5eb3c7;
+  border-radius: 8px;
+  color: #5eb3c7;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 20px;
+}
+.btn-adicionar:hover {
+  background: #edf8fb;
+}
+
+.btn-gerar {
+  width: 100%;
+  padding: 16px;
+  background: #5eb3c7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 30px;
+}
+.btn-gerar:hover {
+  background: #4a9fb0;
+}
+
+/* ── Preview / PDF ── */
+#preview-container {
+  display: none;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.preview-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.preview-actions button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-voltar-form {
+  background: #6c757d;
+  color: #fff;
+}
+.btn-voltar-form:hover {
+  background: #5a6268;
+}
+.btn-baixar {
+  background: #5eb3c7;
+  color: #fff;
+}
+.btn-baixar:hover {
+  background: #4a9fb0;
+}
+
+/* ── Layout do documento ── */
+#doc-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.doc-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.doc-logo {
+  font-size: 38px;
+  font-weight: normal;
+  color: #5a6b7c;
+  letter-spacing: 8px;
+  margin: 0;
+}
+.doc-subtitle {
+  color: #999;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+}
+.doc-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #222;
+}
+.doc-patient-info {
+  font-size: 13px;
+  margin-bottom: 28px;
+  color: #222;
+}
+.doc-patient-info p {
+  margin: 4px 0;
+}
+
+.evolution-block {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 25px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.session-box {
+  background: #f7f9fa;
+  border-left: 4px solid #5eb3c7;
+  padding: 12px 15px;
+  margin-bottom: 14px;
+}
+.session-box p {
+  margin: 3px 0;
+  font-size: 11px;
+  color: #555;
+}
+.section-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 0 6px;
+  color: #222;
+}
+.subsection-title {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0 0 6px;
+  color: #222;
+}
+.evolution-text {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+::placeholder{
+    opacity: 0.3;
+}
+
+@media print {
+  body {
+    background: none;
+    padding: 0;
+  }
+  #formulario,
+  .preview-actions {
+    display: none !important;
+  }
+  #preview-container {
+    display: block !important;
+  }
+  #doc-content {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}

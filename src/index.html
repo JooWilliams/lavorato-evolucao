@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lavorato — Gerador de Evoluções</title>
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body>
+
+    <!-- ══════════════ FORMULÁRIO ══════════════ -->
+    <div id="formulario">
+      <div class="form-header">
+        <h1>GERADOR DE EVOLUÇÕES</h1>
+      </div>
+
+      <!-- Dados do terapeuta -->
+      <div class="card">
+        <h2>Dados do Terapeuta</h2>
+        <div class="row">
+          <div class="field">
+            <label for="nomeProfissional">Nome do profissional</label>
+            <input type="text" id="nomeProfissional" placeholder="SEU NOME COMPLETO AQUI" style="text-transform:uppercase" />
+          </div>
+          <div class="field">
+            <label for="registroProfissional">Registro (CRP / CRM / etc.)</label>
+            <input type="text" id="registroProfissional" placeholder="Ex: CRP NRº: 00/00000" style="text-transform:uppercase" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Dados do paciente -->
+      <div class="card">
+        <h2>Dados do Paciente</h2>
+        <div class="row">
+          <div class="field full">
+            <label for="nomePaciente">Nome do paciente</label>
+            <input type="text" id="nomePaciente" placeholder="NOME COMPLETO DO PACIENTE" style="text-transform:uppercase" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Sessões -->
+      <div class="card">
+        <h2>Sessões / Atendimentos</h2>
+        <div id="lista-sessoes"></div>
+        <button class="btn-adicionar" onclick="adicionarSessao()">+ Adicionar atendimento</button>
+      </div>  
+
+      <button class="btn-gerar" onclick="gerarPreview()">Visualizar e Gerar PDF</button>
+    </div>
+
+    <!-- ══════════════ PREVIEW ══════════════ -->
+    <div id="preview-container">
+      <div class="preview-actions">
+        <button class="btn-voltar-form" onclick="voltarFormulario()">← Voltar ao formulário</button>
+        <button class="btn-baixar" onclick="gerarPDF()">⬇ Baixar PDF</button>
+      </div>
+      <div id="doc-content"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
