@@ -155,7 +155,7 @@ const EVOLUCAO_PADRAO =
           filename: nomeArquivo,
           image: { type: "jpeg", quality: 1 },
           html2canvas: { scale: 2, useCORS: true },
-          pagebreak: { mode: "css", avoid: ".evolution-block" },
+          pagebreak: { mode: ["avoid-all", "css", "legacy"], avoid: ".evolution-block" },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         };
         html2pdf().set(opt).from(document.getElementById("doc-content")).save();
