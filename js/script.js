@@ -36,7 +36,7 @@ const EVOLUCAO_PADRAO =
           <div class="row" style="margin-top:14px">
             <div class="field full">
               <label>Texto da evolução</label>
-              <textarea id="evolucao-${id}" rows="5">${EVOLUCAO_PADRAO}</textarea>
+              <textarea id="evolucao-${id}" rows="5" placeholder="${EVOLUCAO_PADRAO}"></textarea>
             </div>
           </div>
         `;
