@@ -158,6 +158,7 @@ const EVOLUCAO_PADRAO =
           pagebreak: { mode: ["avoid-all", "css", "legacy"], avoid: ".evolution-block" },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         };
+        
         html2pdf().set(opt).from(document.getElementById("doc-content")).save();
       }
 
