@@ -158,8 +158,34 @@ const EVOLUCAO_PADRAO =
           pagebreak: { mode: ["avoid-all", "css", "legacy"], avoid: ".evolution-block" },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         };
-        
-        html2pdf().set(opt).from(document.getElementById("doc-content")).save();
+
+        // Porteiro de dispositivo: só é "celular" se o userAgent indicar isso.
+        const eCelular = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
+        html2pdf().set(opt).from(document.getElementById("doc-content")).outputPdf("blob").then((pdfBlob) => {
+          const arquivo = new File([pdfBlob], nomeArquivo, {type: "application/pdf"});
+
+          // Celular + suporte a compartilhamento → menu nativo (Salvar em Arquivos, etc.)
+          if (eCelular && navigator.canShare && navigator.canShare({ files: [arquivo]})){
+            navigator.share({
+              files: [arquivo],
+              title: "Evolução",
+              text: "Segue em anexo o PDF da evolução.",
+            })
+            .then(() => console.log("Compartilhado com sucesso!"))
+            .catch((error) => console.log("Erro ao compartilhar:", error))
+          } else {
+            // Computador (ou celular sem compartilhamento) → download direto reaproveitando o blob.
+            const url = URL.createObjectURL(pdfBlob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = nomeArquivo;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+          }
+        });
       }
 
       // Inicia com uma sessão já aberta
